@@ -1,5 +1,5 @@
 import React from 'react';
-import { TaskStats } from '../types';
+import type { TaskStats } from '../types';
 
 interface StatsCardsProps {
   stats: TaskStats | null;

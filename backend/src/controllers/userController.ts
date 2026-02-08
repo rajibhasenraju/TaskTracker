@@ -18,7 +18,7 @@ export class UserController {
   static async getUser(req: AuthRequest, res: Response) {
     try {
       const tenantId = getTenantId(req);
-      const userId = parseInt(req.params.id);
+      const userId = parseInt(req.params.id as string);
 
       const user = await UserModel.findById(tenantId, userId);
       if (!user) {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Task, TaskStats } from '../types';
+import type { Task, TaskStats } from '../types';
 import { taskService } from '../services/api';
 import TaskBoard from '../components/TaskBoard';
 import TaskModal from '../components/TaskModal';

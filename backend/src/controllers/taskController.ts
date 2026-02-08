@@ -51,7 +51,7 @@ export class TaskController {
   static async getTask(req: AuthRequest, res: Response) {
     try {
       const tenantId = getTenantId(req);
-      const taskId = parseInt(req.params.id);
+      const taskId = parseInt(req.params.id as string);
 
       const task = await TaskModel.findById(tenantId, taskId);
       if (!task) {
@@ -68,7 +68,7 @@ export class TaskController {
   static async updateTask(req: AuthRequest, res: Response) {
     try {
       const tenantId = getTenantId(req);
-      const taskId = parseInt(req.params.id);
+      const taskId = parseInt(req.params.id as string);
       const { title, description, status, priority, assigned_to, due_date } = req.body;
 
       const updates: any = {};
@@ -94,7 +94,7 @@ export class TaskController {
   static async deleteTask(req: AuthRequest, res: Response) {
     try {
       const tenantId = getTenantId(req);
-      const taskId = parseInt(req.params.id);
+      const taskId = parseInt(req.params.id as string);
 
       const deleted = await TaskModel.delete(tenantId, taskId);
       if (!deleted) {
